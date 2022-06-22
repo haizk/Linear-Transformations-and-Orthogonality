@@ -1,0 +1,957 @@
+\documentclass[12pt, a4paper]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[affil-it]{authblk}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{etoolbox}
+
+\begin{document}
+
+\title{Tugas 2 Aljabar Linear 2022}
+\author{Hezkiel Bram Setiawan\\M0521030\\dibuat menggunakan \LaTeX\\Source code: \href{https://github.com/haizk/Linear-Transformations-and-Orthogonality}{github.com/haizk}}
+\affil{Fakultas Matematika dan Ilmu Pengetahuan Alam\\Universitas Sebelas Maret}
+\date{}
+\maketitle
+
+\section*{Linear Transformations}
+    \begin{enumerate}
+        \item \textbf{Exercise 7.1.3}\\In each case, assume that $T$ is a linear transformation.
+        \begin{enumerate}
+            \setcounter{enumii}{5}
+            \item $\mbox{If } T : \textbf{P}_2 \to \mathbb{R} \mbox{ and } T(x+2)=1 \mbox{, } T(1)=5 \mbox{, } T(x^2+x)=0 \mbox{, find } T(2-x+3x^2)$.
+
+            Diketahui:
+            \begin{itemize}
+                \item[] $T : \textbf{P}_2 \to \mathbb{R}$\item[]$T(x+2)=1$\item[]$T(1)=5$\item[]$T(x^2+x)=0$
+            \end{itemize}
+
+            Ditanya:
+            \begin{itemize}
+                \item Nilai $T(2-x+3x^2)$?
+            \end{itemize}
+
+            Jawab:
+            \begin{align*}
+                T(2-x+3x^2) &= T(3x^2-x+2)\\
+                &= T(3x^2+3x-4x-8+10)\\
+                &= T(3(x^2+x))-T(4(x+2))+T(10(1))\\
+                &= 3T(x^2+x)-4T(x+2)+10T(1)\\
+                &= 3(0)-4(1)+10(5)\\
+                &= 46
+            \end{align*}
+            \begin{itemize}
+                \item[$\therefore$] $T(2-x+3x^2) = 46$
+            \end{itemize}
+        \end{enumerate}
+
+        \item \textbf{Exercise 7.1.4}\\In each case, find a linear transformation with the given properties and compute $T(v)$.
+        \begin{enumerate}
+            \setcounter{enumii}{2}
+            \item $T : \textbf{P}_2 \to \textbf{P}_3 \mbox{; } T(x^2)=x^3 \mbox{, } T(x+1)=0 \mbox{, } T(x-1)=x \mbox{; } v=x^2+x+1$
+            
+            Diketahui:
+            \begin{itemize}
+                \item[] $T : \textbf{P}_2 \to \textbf{P}_3 $\item[]$ T(x^2)=x^3 $\item[]$ T(x+1)=0 $\item[]$ T(x-1)=x $\item[]$ v=x^2+x+1$
+            \end{itemize}
+
+            Ditanya:
+            \begin{itemize}
+                \item Nilai $T(v)$?
+            \end{itemize}
+
+            Jawab:
+            \begin{align*}
+                T(v) &= T(x^2+x+1)\\
+                &= T(x^2) + T(x+1)\\
+                &= x^3 + 0\\
+                &= x^3
+            \end{align*}
+            \begin{itemize}
+                \item[$\therefore$] $T(v)=x^3$
+            \end{itemize}
+        \end{enumerate}
+
+        \item \textbf{Exercise 7.2.1}\\For each matrix $A$, find a basis for the kernel and image $T_{A}$, and find the rank and nullity of $T_{A}$.
+        \begin{enumerate}
+            \item $\begin{bmatrix}
+                1 & 2 & -1 & 2\\
+                3 & 1 & 0 & 2 \\
+                1 & -3 & 2 & 0
+            \end{bmatrix}$
+
+            Diketahui:
+            \begin{itemize}
+                \item[] $A=\begin{bmatrix}
+                    1 & 2 & -1 & 2\\
+                    3 & 1 & 0 & 2 \\
+                    1 & -3 & 2 & 0
+                \end{bmatrix}$
+            \end{itemize}
+
+            Ditanya:
+            \begin{itemize}
+                \item Basis dari Ker($T_A$) dan Im($T_A$)?
+                \item Rank dan nullity dari $T_A$?
+            \end{itemize}
+            
+            Jawab:
+            \begin{align*}
+                A^T=\begin{bmatrix}
+                    1&3&1\\2&1&-3\\-1&0&2\\1&2&0
+                \end{bmatrix} R_2\to R_2-2R_1 &\begin{bmatrix}
+                    1&3&1\\0&-5&-5\\-1&0&2\\1&2&0
+                \end{bmatrix} \\R_3\to R_3 + R_1 &\begin{bmatrix}
+                    1&3&1\\0&-5&-5\\0&3&3\\1&2&0
+                \end{bmatrix} \\R_4\to R_4-R_1 &\begin{bmatrix}
+                    1&3&1\\0&-5&-5\\0&3&3\\0&-1&-1
+                \end{bmatrix} \\R_2\leftrightarrow R_4 &\begin{bmatrix}
+                    1&3&1\\0&-1&-1\\0&3&3\\0&-5&-5
+                \end{bmatrix} \\R_3\to R_3+3R_2 &\begin{bmatrix}
+                    1&3&1\\0&-1&-1\\0&0&0\\0&-5&-5
+                \end{bmatrix} \\R_4\to R_4-5R_2 &\begin{bmatrix}
+                    1&3&1\\0&-1&-1\\0&0&0\\0&0&0
+                \end{bmatrix}
+            \end{align*}
+
+            \begin{itemize}
+                \item[$\therefore$] $\mbox{Basis dari Im(}T_A \mbox{) adalah} \left\{ \begin{bmatrix}
+                    1\\3\\1
+                \end{bmatrix}\mbox{, } \begin{bmatrix}
+                    0\\-1\\-1
+                \end{bmatrix} \right\}$ dan rank $T_A$ adalah 2. Rank didapat dari nilai dim(Im($T_A$)). 
+            \end{itemize}
+            \begin{align*}
+                A = \begin{bmatrix}
+                    1&2&-1&1\\3&1&0&2\\1&-3&2&0
+                \end{bmatrix} R_2\to R_2-3B_1 &\begin{bmatrix}
+                    1&2&-1&1\\0&-5&3&-1\\1&-3&2&0
+                \end{bmatrix} \\R_3\to R_3-R_1 &\begin{bmatrix}
+                    1&2&-1&1\\0&-5&3&-1\\0&-5&3&-1
+                \end{bmatrix} \\R_3\to R_3-R_2 &\begin{bmatrix}
+                    1&2&-1&1\\0&-5&3&-1\\0&0&0&0
+                \end{bmatrix} \\R_2\to -\frac{R_2}{5} &\begin{bmatrix}
+                    1&2&5&-1\\0&1&-\frac{3}{5}&\frac{1}{5}\\0&0&0&0
+                \end{bmatrix} \\R_1\to R_1-2R_2 &\begin{bmatrix}
+                    1&0&\frac{1}{5}&\frac{3}{5}\\0&1&-\frac{3}{5}&\frac{1}{5}\\0&0&0&0
+                \end{bmatrix}
+            \end{align*}
+
+            \begin{itemize}
+                \item[] Untuk mencari kernel, kita harus menyelesaikan:
+            \end{itemize}
+            \begin{align*}
+                \begin{bmatrix}
+                    1&0&\frac{1}{5}&\frac{3}{5}\\0&1&-\frac{3}{5}&\frac{1}{5}\\0&0&0&0
+                \end{bmatrix} \begin{bmatrix}
+                    x_1\\x_2\\x_3\\x_4
+                \end{bmatrix} &= \begin{bmatrix}
+                    0\\0\\0
+                \end{bmatrix}
+            \end{align*}
+
+            \begin{itemize}
+                \item[] Misal $x_3 = t, x_4 = s, \mbox{ maka } x_1=-\frac{3s}{5}-\frac{t}{5}, x_2=-\frac{s}{5}+\frac{3t}{5}$, didapat:
+            \end{itemize}
+            \begin{align*}
+                \begin{bmatrix}
+                    x_1\\x_2\\x_3\\x_4
+                \end{bmatrix} = \begin{bmatrix}
+                    -\frac{3s}{5}-\frac{t}{5}\\-\frac{s}{5}+\frac{3t}{5}\\t\\s
+                \end{bmatrix} = \begin{bmatrix}
+                    -\frac{1}{5}\\\frac{3}{5}\\1\\0
+                \end{bmatrix}t + \begin{bmatrix}
+                    -\frac{3}{5}\\-\frac{1}{5}\\0\\1
+                \end{bmatrix}s
+            \end{align*}
+
+            \begin{itemize}
+                \item[$\therefore$] $\mbox{Basis dari Ker(}T_A \mbox{) adalah} \left\{ \begin{bmatrix}
+                    -\frac{1}{5}\\\frac{3}{5}\\1\\0
+                \end{bmatrix}\mbox{, } \begin{bmatrix}
+                    -\frac{3}{5}\\-\frac{1}{5}\\0\\1
+                \end{bmatrix} \right\}$ dan nullity $T_A$ adalah 2. Nullity didapat dari nilai dim(Ker($T_A$)). 
+            \end{itemize}
+
+            \pagebreak
+
+            \setcounter{enumii}{2}
+            \item $\begin{bmatrix}
+                1 & 2 & -1\\
+                3 & 1 & 2\\
+                4 & -1 & 5\\
+                0 & 2 & -2
+            \end{bmatrix}$
+
+            Diketahui:
+            \begin{itemize}
+                \item[] $A=\begin{bmatrix}
+                    1 & 2 & -1\\
+                    3 & 1 & 2\\
+                    4 & -1 & 5\\
+                    0 & 2 & -2
+                \end{bmatrix}$
+            \end{itemize}
+
+            Ditanya:
+            \begin{itemize}
+                \item Basis dari Ker($T_A$) dan Im($T_A$)?
+                \item Rank dan nullity dari $T_A$?
+            \end{itemize}
+            
+            Jawab:
+            \begin{align*}
+                A^T=\begin{bmatrix}
+                    1&3&4&0\\2&1&-1&2\\-1&2&5&-2
+                \end{bmatrix} R_2\to R_2-2R_1 &\begin{bmatrix}
+                    1&3&4&0\\0&-5&-9&2\\-1&2&5&-2
+                \end{bmatrix} \\R_3\to R_3 + R_1 &\begin{bmatrix}
+                    1&3&4&0\\0&-5&-9&2\\0&5&9&-2
+                \end{bmatrix} \\R_3\to R_3+R_2 &\begin{bmatrix}
+                    1&3&4&0\\0&-5&-9&2\\0&0&0&0
+                \end{bmatrix}
+            \end{align*}
+
+            \begin{itemize}
+                \item[$\therefore$] $\mbox{Basis dari Im(}T_A \mbox{) adalah} \left\{ \begin{bmatrix}
+                    1\\3\\4\\0
+                \end{bmatrix}\mbox{, } \begin{bmatrix}
+                    0\\-5\\-9\\2
+                \end{bmatrix} \right\}$ dan rank $T_A$ adalah 2. Rank didapat dari nilai dim(Im($T_A$)). 
+            \end{itemize}
+            \begin{align*}
+                A=\begin{bmatrix}
+                    1 & 2 & -1\\
+                    3 & 1 & 2\\
+                    4 & -1 & 5\\
+                    0 & 2 & -2
+                \end{bmatrix} R_2\to R_2-3R_1 &\begin{bmatrix}
+                    1 & 2 & -1\\
+                    0 & -5 & 5\\
+                    4 & -1 & 5\\
+                    0 & 2 & -2
+                \end{bmatrix} \\R_3\to R_3 - 4R_1 &\begin{bmatrix}
+                    1 & 2 & -1\\
+                    0 & -5 & 5\\
+                    0 & -9 & 9\\
+                    0 & 2 & -2
+                \end{bmatrix} \\R_2\to -\frac{R_2}{5} &\begin{bmatrix}
+                    1 & 2 & -1\\
+                    0 & 1 & -1\\
+                    0 & -9 & 9\\
+                    0 & 2 & -2
+                \end{bmatrix} \\R_3\to R_3 -9R_2 &\begin{bmatrix}
+                    1 & 2 & -1\\
+                    0 & 1 & -1\\
+                    0 & 0 & 0\\
+                    0 & 2 & -2
+                \end{bmatrix} \\R_4\to R_4-2R_2 &\begin{bmatrix}
+                    1 & 2 & -1\\
+                    0 & 1 & -1\\
+                    0 & 0 & 0\\
+                    0 & 0 & 0
+                \end{bmatrix} \\R_1\to R_1-2R_2 &\begin{bmatrix}
+                    1 & 0 & 1\\
+                    0 & 1 & -1\\
+                    0 & 0 & 0\\
+                    0 & 0 & 0
+                \end{bmatrix}
+            \end{align*}
+
+            \begin{itemize}
+                \item[] Untuk mencari kernel, kita harus menyelesaikan:
+            \end{itemize}
+            \begin{align*}
+                \begin{bmatrix}
+                    1 & 0 & 1\\
+                    0 & 1 & -1\\
+                    0 & 0 & 0\\
+                    0 & 0 & 0
+                \end{bmatrix} \begin{bmatrix}
+                    x_1\\x_2\\x_3
+                \end{bmatrix} &= \begin{bmatrix}
+                    0\\0\\0
+                \end{bmatrix}
+            \end{align*}
+
+            \begin{itemize}
+                \item[] Misal $x_3 = t, \mbox{ maka } x_1=-t, x_2=t$, didapat:
+            \end{itemize}
+            \begin{align*}
+                \begin{bmatrix}
+                    x_1\\x_2\\x_3
+                \end{bmatrix} = \begin{bmatrix}
+                    -t\\t\\t
+                \end{bmatrix} = \begin{bmatrix}
+                    -1\\1\\1
+                \end{bmatrix}t
+            \end{align*}
+
+            \begin{itemize}
+                \item[$\therefore$] $\mbox{Basis dari Ker(}T_A \mbox{) adalah} \left\{ \begin{bmatrix}
+                    -1\\1\\1
+                \end{bmatrix} \right\}$ dan nullity $T_A$ adalah 1. Nullity didapat dari nilai dim(Ker($T_A$)). 
+            \end{itemize}            
+            
+        \end{enumerate}
+
+        \item \textbf{Exercise 7.2.2}\\In each case, (i) find a basis of Ker($T$), and (ii) find a basis of Im($T$). You may assume that $T$ is linear.
+        \begin{enumerate}
+            \setcounter{enumii}{5}
+            \item $T : \textbf{M}_{22} \to \mathbb{R} \mbox{; } T \begin{bmatrix}
+                a & b\\
+                c & d
+            \end{bmatrix} = a + d$
+
+            Diketahui:
+            \begin{itemize}
+                \item[] $T : \textbf{M}_{22} \to \mathbb{R} $\item[]$ T \begin{bmatrix}
+                a & b\\
+                c & d
+                \end{bmatrix} = a + d$\item[]$T$ linear
+            \end{itemize}
+
+            Ditanya:
+            \begin{itemize}
+                \item Basis dari Ker($T$) dan Im($T$)?
+            \end{itemize}
+            
+            Jawab:
+            \begin{align*}
+                \mbox{Ker($T$)} &= \left\{ \left. \begin{bmatrix}
+                    a&b\\c&d
+                \end{bmatrix} \in \textbf{M}_{22} \right| a=-d \right\}
+                \\
+                &= \left\{\left.\begin{bmatrix}
+                    -d&b\\c&d
+                \end{bmatrix}\right|b, c, d \in \mathbb{R}\right\}
+                \\
+                &= \left\{\left. d \begin{bmatrix}
+                    -1&0\\0&1
+                \end{bmatrix}+b\begin{bmatrix}
+                    0&1\\0&0
+                \end{bmatrix}+c\begin{bmatrix}
+                    0&0\\1&0
+                \end{bmatrix}\right|b, c, d \in \mathbb{R}\right\}
+                \\
+                &= span\left\{\begin{bmatrix}
+                    -1&0\\0&1
+                \end{bmatrix}\mbox{, }\begin{bmatrix}
+                    0&1\\0&0
+                \end{bmatrix}\mbox{, }\begin{bmatrix}
+                    0&0\\1&0
+                \end{bmatrix}\right\}
+            \end{align*}
+            \begin{itemize}
+                \item[] $\mbox{Terlihat set}\left\{\begin{bmatrix}
+                    -1&0\\0&1
+                \end{bmatrix}\mbox{, }\begin{bmatrix}
+                    0&1\\0&0
+                \end{bmatrix}\mbox{, }\begin{bmatrix}
+                    0&0\\1&0
+                \end{bmatrix}\right\} \mbox{ialah linearly independent.}$
+            \end{itemize}
+
+            \begin{itemize}
+                \item[$\therefore$] $\left\{\begin{bmatrix}
+                    -1&0\\0&1
+                \end{bmatrix}\mbox{, }\begin{bmatrix}
+                    0&1\\0&0
+                \end{bmatrix}\mbox{, }\begin{bmatrix}
+                    0&0\\1&0
+                \end{bmatrix}\right\}$ adalah basis dari Ker($T$).
+            \end{itemize}
+
+            \begin{itemize}
+                \item[] Untuk setiap $a \in \mathbb{R}$, kita mempunyai:
+            \end{itemize}
+            \begin{align*}
+                \begin{bmatrix}
+                    a&0\\0&0
+                \end{bmatrix} \in \textbf{M}_{22} \mbox{ dan } T\left(\begin{bmatrix}
+                    a&0\\0&0
+                \end{bmatrix}\right) = a
+            \end{align*}
+            \begin{itemize}
+                \item[] Oleh karena itu, $T$ surjektif dan mengimplikasi bahwa Im($T$) = $\mathbb{R}$.
+            \end{itemize}
+
+            \begin{itemize}
+                \item[$\therefore$] $\left\{1\right\}$ adalah basis dari Im($T$).
+            \end{itemize}
+            
+        \end{enumerate}
+
+        \pagebreak
+
+        \item \textbf{Exercise 7.2.14}\\Consider $V = \left\{ \left. \begin{bmatrix}
+            a & b\\
+            c & d
+        \end{bmatrix} \right| a+c=b+d \right\}$
+        \begin{enumerate}
+            \item Consider $S : \textbf{M}_{22} \to \mathbb{R} \mbox{ with } S \begin{bmatrix}
+                a & b\\
+                c & d
+            \end{bmatrix} = a+c-b-d$. Show that $S$ is linear and onto and that $V$ is a subspace of \textbf{M}$_{22}$. Compute dim($V$).
+            
+            Diketahui:
+            \begin{itemize}
+                \item[] $V = \left\{ \left. \begin{bmatrix}
+                    a & b\\
+                    c & d
+                \end{bmatrix} \right| a+c=b+d \right\}$\item[]$S : \textbf{M}_{22} \to \mathbb{R}$ \item[] $S \begin{bmatrix}
+                    a & b\\
+                    c & d
+                \end{bmatrix} = a+c-b-d$
+            \end{itemize}
+
+            Ditanya:
+            \begin{itemize}
+                \item Buktikan $S$ linear dan onto, serta $V$ adalah subspace dari $\textbf{M}_{22}$.
+                \item Nilai dim($V$)?
+            \end{itemize}
+            
+            Jawab:
+            \begin{align}
+                S(\textbf{X}_1 + \textbf{X}_2) &=S\left\{\begin{bmatrix}
+                    a_1&b_1\\c_1&d_1
+                \end{bmatrix}+\begin{bmatrix}
+                    a_2&b_2\\c_2&d_2
+                \end{bmatrix}\right\}\notag\\ &=S\begin{bmatrix}
+                    a_1+a_2&b_1+b_2\\c_1+c_2&d_1+d_2
+                \end{bmatrix}\notag\\ &=(a_1+a_2)+(c_1+c_2)-(b_1+b_2)_(d_1+d_2)
+                \notag\\ &= (a_1+c_1-b_1-d_1)+(a_2+c_2-b_2-d_2)
+                \notag\\ &= S\begin{bmatrix}
+                    a_1&b_1\\c_1&d_1
+                \end{bmatrix}+S\begin{bmatrix}
+                    a_2&b_2\\c_2&d_2
+                \end{bmatrix} \notag\\ &= S(\textbf{X}_1)+S(\textbf{X}_2)
+            \end{align}
+            \begin{align}
+                S(r\textbf{X}_1) &=S\left(r\begin{bmatrix}
+                    a_1&b_1\\c_1&d_1
+                \end{bmatrix}\right) \notag\\ &=S\begin{bmatrix}
+                    ra_1&rb_1\\rc_1&rd_1
+                \end{bmatrix} = ra_1+rc_1-rb_1-rd_1 \notag\\ &=r(a_1+c_1-b_1-d_1) =rS(\textbf{X}_1)
+            \end{align}
+            \begin{itemize}
+                \item[$\therefore$] $S$ adalah linear berdasarkan persamaan (1) dan (2). $\blacksquare$
+            \end{itemize}
+
+            \begin{itemize}
+                \item[] Misal $r\in \mathbb{R}$. Kita mendapatkan: 
+                \begin{align*}
+                    S\begin{bmatrix}
+                        r&0\\0&0
+                    \end{bmatrix}=r
+                \end{align*}
+            \end{itemize}
+            \begin{itemize}
+                \item[$\therefore$] $S$ adalah onto. $\blacksquare$
+            \end{itemize}
+
+            \begin{align}
+                V &= \left\{ \left. \begin{bmatrix}
+                    a & b\\
+                    c & d
+                \end{bmatrix} \right| a+c=b+d \right\} \notag\\
+                0+0=0+0 &\Rightarrow \begin{bmatrix}
+                    0&0\\0&0
+                \end{bmatrix} \in \mathbb{R} \notag\\ &\Rightarrow  0\in \mathbb{R}  
+            \end{align}
+            \begin{align}
+                \textbf{X}_1, \textbf{X}_2 \in V &\Rightarrow \begin{bmatrix}
+                    a_1&b_1\\c_1&d_1
+                \end{bmatrix} \in V \land \begin{bmatrix}
+                    a_2&b_2\\c_2&d_2
+                \end{bmatrix} \in V, a_i+c_i=b_i+d_i, i=1, 2 \notag
+                \\ &\Rightarrow \begin{bmatrix}
+                    a_1+a_2&b_1+b_2\\c_1+c_2&d_1+d_2
+                \end{bmatrix} \in V, \sum_{i=1}^{2} (a_i+c_i) = \sum_{i=1}^{2} (b_i+d_i) \notag
+                \\ &\Rightarrow \begin{bmatrix}
+                    a_1&b_1\\c_1&d_1
+                \end{bmatrix} + \begin{bmatrix}
+                    a_2&b_2\\c_2&d_2
+                \end{bmatrix} \in V, \sum_{i=1}^{2} (a_i+c_i) = \sum_{i=1}^{2} (b_i+d_i) \notag
+                \\ &\Rightarrow \textbf{X}_1 + \textbf{X}_2 \in \mathbb{R}
+            \end{align}
+            \begin{align}
+                \textbf{X}_1 \in V, r \in \mathbb{R} &\Rightarrow \begin{bmatrix}
+                    a_1&b_1\\c_1&d_1
+                \end{bmatrix} \in \mathbb{R}, a_1 + c_1 = b_1 + d_1, a \in \mathbb{R} \notag
+                \\ &\Rightarrow \begin{bmatrix}
+                    ra_1&rb_1\\rc_1&rd_1
+                \end{bmatrix} \in V, ra_1 + rc_1 = rb_1 + rd_1, r \in \mathbb{R} \notag
+                \\ &\Rightarrow r\textbf{X}_1 \in V, r \in \mathbb{R}
+            \end{align}
+
+            \begin{itemize}
+                \item[$\therefore$] $V$ adalah subspace dari $\textbf{M}_{22}$ berdasarkan persamaan (3), (4), dan (5). $\blacksquare$
+            \end{itemize}
+
+            \begin{align*}
+                \begin{bmatrix}
+                    a&b\\c&d
+                \end{bmatrix} \in V &\Rightarrow a+c = b+d 
+                \\ &\Leftrightarrow a = b+d-c
+                \\ &\Leftrightarrow \begin{bmatrix}
+                    b+d-c&b\\c&d
+                \end{bmatrix} \in V
+                \\ &\Rightarrow \left\{ b\begin{bmatrix}
+                    1&1\\0&0
+                \end{bmatrix}+c\begin{bmatrix}
+                    -1&0\\1&0
+                \end{bmatrix}+d\begin{bmatrix}
+                    1&0\\0&1
+                \end{bmatrix}; b, c, d \in \mathbb{R} \right\} = V
+                \\ &\Rightarrow span \left\{\begin{bmatrix}
+                    1&1\\0&0
+                \end{bmatrix}, \begin{bmatrix}
+                    -1&0\\1&0
+                \end{bmatrix}, \begin{bmatrix}
+                    1&0\\0&1
+                \end{bmatrix} \right\} = V
+            \end{align*}
+
+            \begin{itemize}
+                \item[] $\mbox{Terlihat set}\left\{\begin{bmatrix}
+                    1&1\\0&0
+                \end{bmatrix}, \begin{bmatrix}
+                    -1&0\\1&0
+                \end{bmatrix}, \begin{bmatrix}
+                    1&0\\0&1
+                \end{bmatrix} \right\} \mbox{ialah linearly independent.}$
+            \end{itemize}
+            \begin{itemize}
+                \item[$\therefore$] Karena set tersebut merupakan basis dari subset $V$, dim($V$)$=3$.
+            \end{itemize}
+
+            \pagebreak
+
+            \item Consider $T : V \to \mathbb{R} \mbox{ with } T \begin{bmatrix}
+                a & b\\
+                c & d
+            \end{bmatrix} = a+c$. Show that $T$ is linear and onto, and use this information to compute dim(Ker($T$)).
+
+            Diketahui:
+            \begin{itemize}
+                \item[] $V = \left\{ \left. \begin{bmatrix}
+                    a & b\\
+                    c & d
+                \end{bmatrix} \right| a+c=b+d \right\}$\item[]$T : V \to \mathbb{R}$ \item[] $T \begin{bmatrix}
+                    a & b\\
+                    c & d
+                \end{bmatrix} = a+c$
+            \end{itemize}
+
+            Ditanya:
+            \begin{itemize}
+                \item Buktikan $T$ linear dan onto.
+                \item Nilai dim(Ker($T$))?
+            \end{itemize}
+            
+            Jawab:
+            \setcounter{equation}{0}
+            \begin{align}
+                T(\textbf{X}_1 + \textbf{X}_2) &=T\left\{\begin{bmatrix}
+                    a_1&b_1\\c_1&d_1
+                \end{bmatrix}+\begin{bmatrix}
+                    a_2&b_2\\c_2&d_2
+                \end{bmatrix}\right\}\notag\\ &=T\begin{bmatrix}
+                    a_1+a_2&b_1+b_2\\c_1+c_2&d_1+d_2
+                \end{bmatrix}\notag\\ &=(a_1+a_2)+(c_1+c_2)
+                \notag\\ &= (a_1+c_1)+(a_2+c_2)
+                \notag\\ &= T\begin{bmatrix}
+                    a_1&b_1\\c_1&d_1
+                \end{bmatrix}+T\begin{bmatrix}
+                    a_2&b_2\\c_2&d_2
+                \end{bmatrix} \notag\\ &= T(\textbf{X}_1)+T(\textbf{X}_2)
+            \end{align}
+            \begin{align}
+                T(r\textbf{X}_1) &=T\left(r\begin{bmatrix}
+                    a_1&b_1\\c_1&d_1
+                \end{bmatrix}\right) \notag\\ &=T\begin{bmatrix}
+                    ra_1&rb_1\\rc_1&rd_1
+                \end{bmatrix} = ra_1+rc_1 \notag\\ &=r(a_1+c_1) =rS(\textbf{X}_1)
+            \end{align}
+            \begin{itemize}
+                \item[$\therefore$] $T$ adalah linear berdasarkan persamaan (1) dan (2). $\blacksquare$
+            \end{itemize}
+
+            \begin{itemize}
+                \item[] Misal $r\in \mathbb{R}$. Kita mendapatkan: 
+                \begin{align*}
+                    T\begin{bmatrix}
+                        r&0\\0&0
+                    \end{bmatrix}=r
+                \end{align*}
+            \end{itemize}
+            \begin{itemize}
+                \item[$\therefore$] $T:V\to \mathbb{R}$ adalah onto. $\blacksquare$
+            \end{itemize}
+
+            \begin{itemize}
+                \item[] Dengan demikian, kita mendapatkan $T(V) = \mathbb{R}$, dan menghasilkan nilai dim(Im($T$)) $=1$
+            \end{itemize}
+            \begin{align*}
+                \mbox{dim($V$)}&=\mbox{dim(Im($T$))}+\mbox{dim(Ker($T$))}
+                \\\Rightarrow \mbox{dim(Ker($T$))} &= \mbox{dim($V$)}-\mbox{dim(Im($T$))}
+                \\\Rightarrow \mbox{dim(Ker($T$))} &= 3 - 1 = 2
+            \end{align*}
+
+            \begin{itemize}
+                \item[$\therefore$] Nilai dim(Ker($T$)) adalah 2.
+            \end{itemize}
+
+        \end{enumerate}
+    \end{enumerate}
+
+\section*{Orthogonality}
+    \subsection*{Orthogonal Complements and Projections}
+        \begin{enumerate}
+            \item \textbf{Exercise 8.1.1}\\In each case, use the Gram-Schmidt algorithm to convert the given basis $B$ of $V$ into an orthogonal basis.
+            \begin{enumerate}
+                \setcounter{enumii}{2}
+                \item $V = \mathbb{R}^3 \mbox{, } B = \{(1, -1, 1), \mbox{ }(1, 0, 1), \mbox{ }(1, 1, 2)\}$
+                
+                Diketahui:
+                \begin{itemize}
+                    \item[] $V=\mathbb{R}^3$
+                    \item[] $B={(1, -1, 1), (1, 0, 1), (1, 1, 2)}$
+                    \item[] $\textbf{x}_1=(1, -1, 1)$
+                    \item[] $\textbf{x}_2=(1, 0, 1)$
+                    \item[] $\textbf{x}_3=(1, 1, 2)$
+                \end{itemize}
+
+                Ditanya:
+                \begin{itemize}
+                    \item Orthogonal basis dari basis $B$ of $V$?
+                \end{itemize}
+            
+                Jawab:
+                \setcounter{equation}{0}
+                \begin{align}
+                    \notag \textbf{f}_1 &= \textbf{x}_1
+                    \\ &= (1, -1, 1)
+                \end{align}
+                \begin{align}
+                    \notag \textbf{f}_2 &= \textbf{x}_2 - \frac{\textbf{x}_2 \cdot \textbf{f}_1}{\Vert \textbf{f}_1 \Vert^2} \textbf{f}_1
+                    \\\notag &= (1,0,1) - \frac{(1, 0, 1) (1, -1, 1)}{\Vert(1, -1, 1)\Vert^2} (1, -1, 1)
+                    \\\notag &= (1,0,1) - \frac{2}{3} (1, -1, 1)
+                    \\ &= (\frac{1}{3}, \frac{2}{3}, \frac{1}{3}) = \frac{1}{3}(1, 2, 1)
+                \end{align}
+                \begin{align}
+                    \notag \textbf{f}_3 &= \textbf{x}_3 - \frac{\textbf{x}_3 \cdot \textbf{f}_1}{\Vert\textbf{f}_1\Vert^2}\textbf{f}_1 - \frac{\textbf{x}_3 \cdot \textbf{f}_2}{\Vert\textbf{f}_2\Vert^2}\textbf{f}_2
+                    \\\notag &= (1, 1, 2) - \frac{(1, 1, 2)(1,-1,1)}{\Vert(1, -1, 1)\Vert^2}(1,-1,1) - \frac{(1,1,2)\cdot\frac{1}{3}(1,2,1)}{\Vert\frac{1}{3}(1,2,1)\Vert^2}\cdot\frac{1}{3}(1,2,1)
+                    \\\notag &= (1, 1, 2) - \frac{2}{3}(1, -1, 1) - \frac{5}{3}(1,2,1)
+                    \\ &= (-\frac{4}{3}, -\frac{5}{3}, -\frac{1}{3}) = \frac{1}{3}(-4,-5,-1)
+                \end{align}
+
+                \begin{itemize}
+                    \item[$\therefore$] Orthogonal basisnya adalah $\{(1, -1, 1), \frac{1}{3}(1, 2, 1), \frac{1}{3}(-4, -5, -1)\}$.
+                \end{itemize}
+
+            \end{enumerate}
+            
+            \item \textbf{Exercise 8.1.2}\\In each case, write \textbf{x} as the sum of a vector in $U$ and a vector in $U^\perp$.
+            \begin{enumerate}
+                \setcounter{enumii}{5}
+                \item $\textbf{x} = (a, b, c, d),\\U = \mbox{ span } \{(1, -1, 2, 0), \mbox{ }(-1, 1, 1, 1)\}$
+                
+                Diketahui:
+                \begin{itemize}
+                    \item[] $\textbf{x}=(a,b,c,d)$
+                    \item[] $U=\mbox{span}{(1,-1,2,0),(-1,1,1,1)}$
+                \end{itemize}
+
+                Ditanya:
+                \begin{itemize}
+                    \item Tulis \textbf{x} sebagai sum dari vector in $U$ dan vector in $U^\perp$.
+                \end{itemize}
+            
+                Jawab:
+                \begin{itemize}
+                    \item[] Misal $\textbf{e}_1 = (1,-1,2,0)$ dan $\textbf{e}_2 = (-1,1,1,1)$ maka:
+                \end{itemize}
+                \begin{align*}
+                    \textbf{x}_1 &= \mbox{proj}_U \textbf{x}
+                    \\ &= \frac{a-b+2c}{6}(1,-1,2,0)+\frac{-a+b+c+d}{4}(-1,1,1,1)
+                    \\ &= (\frac{5a-5b+c-3d}{12}, \frac{-5a+5b-c+3d}{12},
+                    \\ &\frac{a-b+11c+3d}{12}, \frac{-3a+3b+3c+3d}{12})
+                    \\ \textbf{x}_2 &= \textbf{x} - \textbf{x}_1
+                    \\ &= (\frac{7a+5b-c+3d}{12}, \frac{5a+7b+c-3d}{12}
+                    \\ &\frac{-a-b+c-3d}{12}, \frac{3a-3b-3c+9d}{12})
+                \end{align*}
+
+                \begin{itemize}
+                    \item[$\therefore$] $\textbf{x}=\textbf{x}_1 + \textbf{x}_2$
+                \end{itemize}
+            \end{enumerate}
+
+            \pagebreak
+            
+            \item \textbf{Exercise 8.1.3}\\Let $\textbf{x}=(1, -2, 1, 6)$ in $\mathbb{R}^4$, and let $U = \mbox{ span } \{(2, 1, 3, -4), \mbox{ }(1, 2, 0, 1)\}$.
+            \begin{enumerate}
+                \item Compute proj$_U$ \textbf{x}.
+                
+                \item Show that $\{(1, 0, 2, -3), \mbox{ }(4, 7, 1, 2)\}$ is another orthogonal basis of $U$.
+                
+                \item Use the basis in part (b) to compute proj$_U$ \textbf{x}.
+                
+                Diketahui:
+                \begin{itemize}
+                    \item[] $\textbf{x}=(1, -2, 1, 6) \in \mathbb{R}^4$
+                    \item[] $U = \mbox{ span } \{(2, 1, 3, -4), \mbox{ }(1, 2, 0, 1)\}$
+                \end{itemize}
+
+                Ditanya:
+                \begin{itemize}
+                    \item Nilai $\mbox{proj}_U \textbf{x}$?
+                    \item Tunjukkan bahwa $\{(1,0,2,-3), (4,7,1,2)\}$ adalah contoh lain orthogonal basis $U$.
+                    \item Gunakan basis di atas untuk menghitung nilai $\mbox{proj}_U \textbf{x}$. 
+                \end{itemize}
+            
+                Jawab:
+                \begin{align*}
+                    \mbox{proj}_U \textbf{x} &= \frac{\textbf{x} \cdot \textbf{f}_1}{\Vert \textbf{f}_1 \Vert^2} \textbf{f}_1 + \frac{\textbf{x} \cdot \textbf{f}_2}{\Vert \textbf{f}_2 \Vert^2} \textbf{f}_2
+                    \\ &= \frac{(1,-2,1,6) (2,1,3,-4)}{\Vert (2,1,3,-4) \Vert^2} (2,1,3,-4) 
+                    \\ &+ \frac{(1,-2,1,6) (1,2,0,1)}{\Vert (1,2,0,1) \Vert^2} (1,2,0,1)
+                    \\ &= -\frac{21}{30} (2,1,3,-4)+ \frac{3}{6}(1,2,0,1)
+                    \\ &= \frac{3}{10}(-3,1,-7,11)
+                \end{align*}
+                \begin{itemize}
+                    \item[$\therefore$] $\mbox{proj}_U \textbf{x} = \frac{3}{10}(-3,1,-7,11)$.
+                \end{itemize}
+                \begin{align*}
+                    U &= \mbox{span}\{(2,1,3,-4),(1,2,0,1)\}
+                    \\ &= \alpha(2,1,3,-4) + \beta(1,2,0,1)
+                    \\ &= (2\alpha+\beta,\alpha+2\beta,3\alpha,-4\alpha+\beta)
+                    \\\mbox{f}_1 &= (1,0,2,-3) ; \alpha = \frac{2}{3}, \beta = -\frac{1}{3}
+                    \\\mbox{f}_2 &= (4,7,1,2) ; \alpha = \frac{1}{3}, \beta = \frac{10}{3}
+                \end{align*}
+                \begin{align*}
+                    \mbox{f}_1\cdot\mbox{f}_2 = 4+0+2-6 = 0
+                \end{align*}
+                \begin{itemize}
+                    \item[$\therefore$] $\{(1,0,2,-3),(4,7,1,2)\}$ juga $\mbox{span } \{(2, 1, 3, -4), \mbox{ }(1, 2, 0, 1)\}$
+                \end{itemize}
+                \begin{align*}
+                    \mbox{proj}_U \textbf{x} &= \frac{\textbf{x} \cdot \textbf{f}_1}{\Vert \textbf{f}_1 \Vert^2} \textbf{f}_1 + \frac{\textbf{x} \cdot \textbf{f}_2}{\Vert \textbf{f}_2 \Vert^2} \textbf{f}_2
+                    \\ &= \frac{(1,-2,1,6) (1,0,2,-3)}{\Vert (1,0,2,-3) \Vert^2} (1,0,2,-3) 
+                    \\ &+ \frac{(1,-2,1,6) (4,7,1,2)}{\Vert (4,7,1,2) \Vert^2} (4,7,1,2)
+                    \\ &= -\frac{15}{14} (1,0,2,-3)+ \frac{3}{70}(4,7,1,2)
+                    \\ &= \frac{3}{10}(-3,1,-7,11)
+                \end{align*}
+                \begin{itemize}
+                    \item[$\therefore$] Nilai $\mbox{proj}_U \textbf{x}$ tetap sama walaupun menggunakan basis yang berbeda.
+                \end{itemize}
+                
+            \end{enumerate}
+            
+            \item \textbf{Exercise 8.1.4}\\In each case, use the Gram-Schmidt algorithm to find an orthogonal basis of the subspace $U$, and find the vector in $U$ closest to \textbf{x}.
+            \begin{enumerate}
+                \setcounter{enumii}{2}
+                \item $U = \mbox{ span } \{(1, 0, 1, 0), \mbox{ }(1, 1, 1, 0), \mbox{ }(1, 1, 0, 0)\},\\\textbf{x}=(2, 0, -1, 3)$
+                
+                Diketahui:
+                \begin{itemize}
+                    \item[] $U=\mbox{span}\{(1,0,1,0), (1,1,1,0), (1,1,0,0)\}$
+                    \item[] $\textbf{x} = (2,0,-1,3)$
+                \end{itemize}
+
+                Ditanya:
+                \begin{itemize}
+                    \item Orthogonal basis dari subspace $U$?
+                    \item Vector dalam $U$ yang terdekat dengan \textbf{x}?
+                \end{itemize}
+            
+                Jawab:
+                \setcounter{equation}{0}
+                \begin{align}
+                    \notag \textbf{f}_1 &= \textbf{x}_1
+                    \\ &= (1,0,1,0)
+                \end{align}
+                \begin{align}
+                    \notag \textbf{f}_2 &= \textbf{x}_2 - \frac{\textbf{x}_2 \cdot \textbf{f}_1}{\Vert \textbf{f}_1 \Vert^2} \textbf{f}_1
+                    \\\notag &= (1,1,1,0) - \frac{(1,1,1,0) (1,0,1,0)}{\Vert(1,0,1,0)\Vert^2} (1,0,1,0)
+                    \\\notag &= (1,1,1,0) - \frac{2}{3} (1,0,1,0)
+                    \\ &= (0,1,0,0)
+                \end{align}
+                \begin{align}
+                    \notag \textbf{f}_3 &= \textbf{x}_3 - \frac{\textbf{x}_3 \cdot \textbf{f}_1}{\Vert\textbf{f}_1\Vert^2}\textbf{f}_1  - \frac{\textbf{x}_3 \cdot \textbf{f}_2}{\Vert\textbf{f}_2\Vert^2}\textbf{f}_2
+                    \\\notag &= (1,1,0,0) - \frac{(1,1,0,0)(1,0,1,0)}{\Vert(1,0,1,0)\Vert^2}(1,0,1,0) 
+                    \\\notag &- \frac{(1,1,0,0)(0,1,0,0)}{\Vert (0,1,0,0) \Vert^2}(0,1,0,0)
+                    \\\notag &= (1,1,0,0) - \frac{1}{2}(1,0,1,0) - (0,1,0,0)
+                    \\ &= \frac{1}{2}(1,0,-1,0)
+                \end{align}
+                \begin{itemize}
+                    \item[$\therefore$] $\{(1,0,1,0),(0,1,0,0),(\frac{1}{2}(1,0,-1,0))\}$ adalah orthogonal basis dari subspace $U$.
+                \end{itemize}
+
+                \begin{align*}
+                    \mbox{proj}_U &= \frac{(\textbf{x}) \cdot \textbf{f}_1}{\Vert\textbf{f}_1\Vert^2}\textbf{f}_1 + \frac{\textbf{x} \cdot \textbf{f}_2}{\Vert\textbf{f}_2\Vert^2}\textbf{f}_2 + \frac{\textbf{x} \cdot \textbf{f}_3}{\Vert\textbf{f}_3\Vert^2}\textbf{f}_3
+                    \\ &= \frac{(2,0,-1,3) \cdot (1,0,1,0)}{\Vert(1,0,1,0)\Vert^2}(1,0,1,0) + \frac{(2,0,-1,3) \cdot (0,1,0,0)}{\Vert(0,1,0,0)\Vert^2}(0,1,0,0)
+                    \\ &+ \frac{(2,0,-1,3) \cdot \frac{1}{2}(1,0,-1,0)}{\Vert\frac{1}{2}(1,0,-1,0)\Vert^2}\frac{1}{2}(1,0,-1,0)
+                    \\ &= \frac{1}{2}(1,0,1,0) + 0 + \frac{3}{2}(1,0,-1,0)
+                    \\ &= \frac{1}{2}(4,0,-2,0) = (2,0,-1,0)
+                \end{align*}
+                \begin{itemize}
+                    \item[$\therefore$] $(2,0,-1,0)$ adalah vector dalam $U$ yang terdekat dengan \textbf{x}.
+                \end{itemize}
+            \end{enumerate}
+            
+            \item \textbf{Exercise 8.1.5}\\Let $U = \mbox{ span } \{\textbf{v}_1, \textbf{v}_2, \mbox{ }\dots\mbox{ }, \textbf{v}_k\} \mbox{; } \textbf{v}_i \mbox{ in } \mathbb{R}^n$, and let $A$ be the $k \times n$ matrix with the \textbf{v}$_i$ as rows.
+            \begin{enumerate}
+                \item Show that $U^\perp = \{\textbf{x} \mbox{ }|\mbox{ } \textbf{x} \in \mathbb{R}^n, A\textbf{x}^T=0\}$.
+                \item Use part (a) to find $U^\perp \mbox{ if}\\U = \mbox{ span } \{(1, -1, 2, 1), \mbox{ }(1, 0, -1, 1)\}$.
+                
+                Diketahui:
+                \begin{itemize}
+                    \item[] $U = \mbox{ span } \{\textbf{v}_1, \textbf{v}_2, \mbox{ }\dots\mbox{ }, \textbf{v}_k\}$
+                    \item[] $A$ $k \times n$ matriks dengan $\textbf{v}_i$ sebagai baris.
+                \end{itemize}
+
+                Ditanya:
+                \begin{itemize}
+                    \item Tunjukkan bahwa  $U^\perp = \{\textbf{x} \mbox{ }|\mbox{ } \textbf{x} \in \mathbb{R}^n, A\textbf{x}^T=0\}$.
+                    \item Nilai $U^\perp \mbox{ jika }U = \mbox{ span } \{(1, -1, 2, 1), \mbox{ }(1, 0, -1, 1)\}$?
+                \end{itemize}
+            
+                \pagebreak
+            
+                Jawab:
+                
+            \end{enumerate}
+        \end{enumerate}
+
+    \subsection*{Orthogonal Diagonalization}
+        \begin{enumerate}
+            \setcounter{enumi}{5}
+            \item \textbf{Exercise 8.2.1}\\Normalize the rows to make each of the following matrices orthogonal.
+            \begin{enumerate}
+                \setcounter{enumii}{2}
+                \item $A = \begin{bmatrix}
+                    1 & 2\\
+                    -4 & 2
+                \end{bmatrix}$
+
+            \end{enumerate}
+            
+            \item \textbf{Exercise 8.2.5}\\For each matrix $A$, find an orthogonal matrix $P$ such that $P^{-1}AP$ is diagonal.
+            \begin{enumerate}
+                \setcounter{enumii}{6}
+                \item $A = \begin{bmatrix}
+                    5&3&0&0\\
+                    3&5&0&0\\
+                    0&0&7&1\\
+                    0&0&1&7
+                \end{bmatrix}$
+
+            \end{enumerate}
+            
+            \item \textbf{Exercise 8.2.7}\\Consider $A = \begin{bmatrix}
+                0&0&a\\
+                0&b&0\\
+                a&0&0
+            \end{bmatrix}$. Show that $c_A(x)=(x-b)(x-a)(x+a)$ and find an orthogonal matrix $P$ such that $P^{-1}AP$ is diagonal.
+            
+        \end{enumerate}
+
+    \subsection*{Positive Definite Matrices}
+        \begin{enumerate}
+            \setcounter{enumi}{8}
+            \item \textbf{Exercise 8.3.1}\\Find the Cholesky decomposition of each of the following matrices.
+            \begin{enumerate}
+                \setcounter{enumii}{3}
+                \item $\begin{bmatrix}
+                    20 & 4 & 5\\
+                    4 & 2 & 3\\
+                    5 & 3 & 5
+                \end{bmatrix}$
+
+            \end{enumerate}
+        \end{enumerate}
+
+    \subsection*{QR-Factorization}
+        \begin{enumerate}
+            \setcounter{enumi}{9}
+            \item \textbf{Exercise 8.4.1}\\In each case find the QR-factorization of $A$.
+            \begin{enumerate}
+                \setcounter{enumii}{3}
+                \item $A = \begin{bmatrix}
+                    1 & 1 & 0\\
+                    -1 & 0 & 1\\
+                    0 & 1 & 1\\
+                    1 & -1 & 0
+                \end{bmatrix}$
+
+            \end{enumerate}
+        \end{enumerate}
+
+    \subsection*{Computing Eigenvalues}
+        \begin{enumerate}
+            \setcounter{enumi}{10}
+            \item \textbf{Exercise 8.5.1}\\In each case, find the exact eigenvalues and determine corresponding eigenvectors. Then start with $\textbf{x}_0=\begin{bmatrix}
+                1\\1
+            \end{bmatrix}$ and compute $\textbf{x}_4$ and $r_3$ using the power method.
+            \begin{enumerate}
+                \item $A=\begin{bmatrix}
+                    2&-4\\-3&3
+                \end{bmatrix}$
+
+                \item $A=\begin{bmatrix}
+                    5&2\\-3&-2
+                \end{bmatrix}$
+
+            \end{enumerate}
+        \end{enumerate}
+
+    \subsection*{The Singular Value Decomposition}
+        \begin{enumerate}
+            \setcounter{enumi}{11}
+            \item \textbf{Exercise 8.6.8}\\Let $A^{-1}=A=A^T$ where $A$ is $n \times n$. Given any orthogonal $n \times n$ matrix $U$, find an orthogonal matrix $V$ such that $A=U\Sigma _AV^T$ is an SVD for $A$.\\If $A=\begin{bmatrix}
+                0&1\\1&0
+            \end{bmatrix}$ do this for:
+            \begin{enumerate}
+                \item $U=\frac{1}{5}\begin{bmatrix}
+                    3&-4\\4&3
+                \end{bmatrix}$
+
+            \end{enumerate}
+            
+            \item \textbf{Exercise 8.6.9}\\Find an SVD for the following matrices:
+            \begin{enumerate}
+                \setcounter{enumii}{1}
+                \item $\begin{bmatrix}
+                    1 & 1 & 1\\
+                    -1 & 0 & -2\\
+                    1 & 2 & 0
+                \end{bmatrix}$
+
+            \end{enumerate}
+        \end{enumerate}
+
+    \subsection*{Complex Matrices}
+        \begin{enumerate}
+            \setcounter{enumi}{13}
+            \item \textbf{Exercise 8.7.2}\\In each case, determine whether the two vectors are orthogonal.
+            \begin{enumerate}
+                \setcounter{enumii}{1}
+                \item $(i, -i, 2+i),\mbox{ }(i, i, 2-i)$
+                
+            \end{enumerate}
+            
+            \item \textbf{Exercise 8.7.8}\\In each case, find a unitary matrix $U$ such that $U^HAU$ is diagonal.
+            \setcounter{enumii}{5}
+            \begin{enumerate}
+                \item $A=\begin{bmatrix}
+                    1&0&0\\
+                    0&1&1+i\\
+                    0&1-i&2
+                \end{bmatrix}$
+
+            \end{enumerate}
+        \end{enumerate}
+
+\end{document}
