@@ -821,7 +821,87 @@
                 \pagebreak
             
                 Jawab:
-                
+                \begin{itemize}
+                    \item[] $U^\perp \mbox{ mempunyai semua element } \mbox{ seperti } v_1x=0, v_2x=0, \dots, v_kx=0$
+                    \item[] $A \mbox{ adalah matriks dengan } v_i \mbox{ sebagai baris.}$ 
+                \end{itemize}
+
+                \begin{align*}
+                    A = \begin{bmatrix}
+                        v_1 \\ v_2 \\ \dots \\ v_k
+                    \end{bmatrix} \textbf{x}^T
+                \end{align*}
+
+                \begin{itemize}
+                    \item[] Maka:
+                \end{itemize}
+
+                \begin{align*}
+                    A \textbf{x}^T = \begin{bmatrix}
+                        v_1 x \\ v_2 x \\ \dots \\ v_k x
+                    \end{bmatrix} = \begin{bmatrix}
+                        0\\0\\\dots\\0
+                    \end{bmatrix}
+                \end{align*}
+
+                \begin{itemize}
+                    \item[$\therefore$] $A\textbf{x}^T = 0$.
+                \end{itemize}
+
+                \begin{itemize}
+                    \item[] $U= \mbox{ span }\{(1,-1,2,1),(1,0,-1,1)\}$
+                \end{itemize}
+
+                \begin{align*}
+                    &\begin{bmatrix}
+                        1 & -1 & 2 & 1\\1 & 0 & -1 & 1
+                    \end{bmatrix} \begin{bmatrix}
+                        \textbf{x}_1 \\ \textbf{x}_2 \\ \textbf{x}_3 \\ \textbf{x}_4
+                    \end{bmatrix} = \begin{bmatrix}
+                        0 \\ 0
+                    \end{bmatrix}
+                    \\ &B_2 \to B_2 - B_1
+                    \\ &\begin{bmatrix}
+                        1 & -1 & 2 & 1 \\ 0 & 1 & -3 & 0
+                    \end{bmatrix} \begin{bmatrix}
+                        \textbf{x}_1 \\ \textbf{x}_2 \\ \textbf{x}_3 \\ \textbf{x}_4
+                    \end{bmatrix} = \begin{bmatrix}
+                        0 \\ 0
+                    \end{bmatrix}
+                \end{align*}
+
+                \begin{align*}
+                    \textbf{x}_2 - 3\textbf{x}_3 &= 0
+                    \\ \textbf{x}_2 &= 3\textbf{x}_3
+                    \\ \textbf{x}_1 - \textbf{x}_2 + 2\textbf{x}_3 + \textbf{x}_4 &= 0
+                    \\ \textbf{x}_1 - 3\textbf{x}_3 + \textbf{4} &= 0
+                    \\ \textbf{x}_1 &= \textbf{x}_3 - \textbf{x}_4
+                \end{align*}
+
+                \pagebreak
+
+                \begin{itemize}
+                    \item[] Maka:
+                \end{itemize}
+                \begin{align*}
+                    \begin{bmatrix}
+                        \textbf{x}_1 \\ \textbf{x}_2 \\ \textbf{x}_3 \\ \textbf{x}_4
+                    \end{bmatrix} &= \begin{bmatrix}
+                        \textbf{x}_3 - \textbf{x}_4 \\ 3\textbf{x}_3 \\ \textbf{x}_3 \\ \textbf{x}_4
+                    \end{bmatrix}
+                    \\ \begin{bmatrix}
+                        \textbf{x}_1 \\ \textbf{x}_2 \\ \textbf{x}_3 \\ \textbf{x}_4
+                    \end{bmatrix} &= \textbf{x}_3 \begin{bmatrix}
+                        1 & 3 & 1 & 0
+                    \end{bmatrix} + \textbf{x}_4 \begin{bmatrix}
+                        -1 \\ 0 \\ 0 \\ 1
+                    \end{bmatrix}
+                \end{align*}
+
+                \begin{itemize}
+                    \item[$\therefore$] $U^\perp = \mbox{ span } \{(1,3,1,0), (-1,0,0,1)\}$.
+                \end{itemize}
+
             \end{enumerate}
         \end{enumerate}
 
@@ -836,6 +916,33 @@
                     -4 & 2
                 \end{bmatrix}$
 
+                Diketahui:
+                \begin{itemize}
+                    \item[] $A = \begin{bmatrix}
+                        1 & 2 \\ -4 & 2
+                    \end{bmatrix}$
+                \end{itemize}
+
+                Ditanya:
+                \begin{itemize}
+                    \item Normalize $A$.
+                \end{itemize}
+
+                Jawab:
+                \begin{align*}
+                    \Vert (1, 2) \Vert &= \sqrt{1+4} = \sqrt{5}
+                    \\ \Vert (-4, 2) \Vert &= \sqrt{16 + 4} = 2\sqrt{5}
+                \end{align*}
+
+                \begin{itemize}
+                    \item[$\therefore$] $A \sim \begin{bmatrix}
+                        \frac{\sqrt{5}}{5} & \frac{2\sqrt{5}}{5}
+                        \\ \frac{-4\sqrt{5}}{5} & \frac{2\sqrt{5}}{5}
+                    \end{bmatrix} = \begin{bmatrix}
+                        \frac{\sqrt{5}}{5} & \frac{2\sqrt{5}}{5}
+                        \\ \frac{-2\sqrt{5}}{5} & \frac{\sqrt{5}}{5}
+                    \end{bmatrix}$
+                \end{itemize}
             \end{enumerate}
             
             \item \textbf{Exercise 8.2.5}\\For each matrix $A$, find an orthogonal matrix $P$ such that $P^{-1}AP$ is diagonal.
@@ -848,6 +955,82 @@
                     0&0&1&7
                 \end{bmatrix}$
 
+                Diketahui:
+                \begin{itemize}
+                    \item[] $A = \begin{bmatrix}
+                        5 & 3 & 0 & 0
+                        \\ 3 & 5 & 0 & 0
+                        \\ 0 & 0 & 7 & 1
+                        \\ 0 & 0 & 1 & 7
+                    \end{bmatrix}$
+                \end{itemize}
+
+                Ditanya:
+                \begin{itemize}
+                    \item Orthogonal matriks $P$, di mana $P^{-1}AP$ adalah diagonal?
+                \end{itemize}
+
+                Jawab:
+                \begin{itemize}
+                    \item[] Mencari eigenvalues dan eigenvectors
+                \end{itemize}
+                \begin{align*}
+                    \begin{bmatrix}
+                        5-\lambda & 3 & 0 & 0
+                        \\ \lambda^4 - 24\lambda^3 + 204\lambda^2 - 704\lambda = 0
+                        \\ \lambda_1 = 6; \lambda_2 = 2; \lambda_3 = 8; \lambda_4 = 8
+                    \end{bmatrix}
+                \end{align*}
+
+                \begin{itemize}
+                    \item[] Untuk $\lambda_1 = 6$
+                \end{itemize}
+
+                \begin{align*}
+                    \begin{bmatrix}
+                        -1 & 3 & 0 & 0
+                        \\ 3 & -1 & 0 & 0
+                        \\ 0 & 0 & 1 & 1
+                        \\ 0 & 0 & 1 & 1
+                    \end{bmatrix}
+                \end{align*}
+
+                \begin{itemize}
+                    \item[] Null space dari matriks adalah: $\begin{bmatrix}
+                        0\\0\\-1\\1
+                    \end{bmatrix}$
+                    \item[] Untuk $\lambda_2 = 2$
+                    \item[] Null space dari matriks adalah: $\begin{bmatrix}
+                        -1&1&0&0
+                    \end{bmatrix}$
+                    \item[] Untuk $\lambda_3 = 8$
+                    \item[] Null space dari matriks adalah: $\begin{bmatrix}
+                        1&1&0&0
+                    \end{bmatrix}$
+                    \item[] Untuk $\lambda_4 = 8$
+                    \item[] Null space dari matriks adalah: $\begin{bmatrix}
+                        0&0&1&1
+                    \end{bmatrix}$
+                    \item[$\therefore$] $P$ matriks adalah: 
+                \end{itemize}
+                \begin{align*}
+                    P = \begin{bmatrix}
+                        0&-1&1&0
+                        \\ 0&1&1&0
+                        \\ -1&0&0&1
+                        \\ 1&0&0&1
+                    \end{bmatrix}
+                \end{align*}
+                \begin{itemize}
+                    \item[] Dari diagonal matriks, $D$ adalah:
+                \end{itemize}
+                \begin{align*}
+                    \lambda_1 = 6; \lambda_2; \lambda_3 = 8; \lambda_4 = 8
+                    \\ P^{-1}AP=\begin{bmatrix}
+                        6&0&0&0\\0&2&0&0\\0&0&8&0\\0&0&0&8
+                    \end{bmatrix} = D
+                \end{align*}
+
             \end{enumerate}
             
             \item \textbf{Exercise 8.2.7}\\Consider $A = \begin{bmatrix}
@@ -855,7 +1038,125 @@
                 0&b&0\\
                 a&0&0
             \end{bmatrix}$. Show that $c_A(x)=(x-b)(x-a)(x+a)$ and find an orthogonal matrix $P$ such that $P^{-1}AP$ is diagonal.
+
+            Diketahui:
+            \begin{itemize}
+                \item[] $A = \begin{bmatrix}
+                    0&0&a\\0&b&0\\a&0&0
+                \end{bmatrix}$
+            \end{itemize}
+
+            Ditanya:
+            \begin{itemize}
+                \item Tunjukkan $c_A(x)=(x-b)(x-a)(x+a)$.
+                \item Orthogonal matriks $P$, di mana $P^{-1}AP$ adalah diagonal?
+            \end{itemize}
             
+            Jawab:
+            \begin{itemize}
+                \item[] Mencari karakteristik polinomial, eigenvalues, dan eigenvectors
+            \end{itemize}
+            \begin{align*}
+                \mbox{det}(\textbf{x}I-A) &= \left|\begin{matrix}
+                    \textbf{x}&0&-a\\0&\textbf{x}-b&0\\-a&0&\textbf{x}
+                \end{matrix}\right|
+                \\ &= (\textbf{x}-b) \left| \begin{matrix}
+                    \textbf{x} & -a \\ -a & \textbf{x}
+                \end{matrix} \right|
+                \\ &= (\textbf{x} - b)(\textbf{x}^2 - a^2)
+                \\ &= (\textbf{x}-b)(\textbf{x}-a)(\textbf{x}+a) = c_A(x)
+            \end{align*}
+
+            \begin{itemize}
+                \item[$\therefore$] $\lambda_1 = b; \lambda_2 = a; \lambda_3 = -a$
+            \end{itemize}
+            \begin{align*}
+                (\lambda_1I-A)\textbf{x}_1 = 0 &\Leftrightarrow \begin{bmatrix}
+                    b & 0 & -a \\ 0 & b-b&0\\-a&0&&b
+                \end{bmatrix}\begin{bmatrix}
+                    \textbf{x}_1^{(1)}\\\textbf{x}_1^{(2)}\\\textbf{x}_1^{(3)}
+                \end{bmatrix} = \begin{bmatrix}
+                    0&0&0
+                \end{bmatrix}
+                \\ b\textbf{x}_1^{(1)} - a\textbf{x}_1^{(3)} = 0 &\Rightarrow \textbf{x}_1^{(3)} = \frac{b}{a}\textbf{x}_1^{(3)}
+                \\ -a\textbf{x}_1^{(1)}+b\textbf{x}_1^{(3)} = 0 &\Rightarrow \textbf{x}_1^{(3)} = \frac{a}{b}\textbf{x}_1^{(1)}
+            \end{align*}
+
+            \begin{itemize}
+                \item[] Terapkan $a = \pm b$, ambil $a=-b$
+                \item[] $\textbf{x}_1^{(1)}=1$ dan $\textbf{x}_1^{(2)}=1$
+                \item[] Kita mendapat $\textbf{x}_1^{(3)}=1$ dan $\textbf{x}_1=(1,1,-1)$
+            \end{itemize}
+            \begin{align*}
+                (\lambda_2I-A)\textbf{x}_2=0 &\Leftrightarrow \begin{bmatrix}
+                    a&0&-a\\0&a-b&0\\-a&0&a
+                \end{bmatrix}\begin{bmatrix}
+                    \textbf{x}_2^{(1)} \\ \textbf{x}_2^{(2)} \\ \textbf{x}_2^{(3)}
+                \end{bmatrix} = \begin{bmatrix}
+                    0\\0\\0
+                \end{bmatrix}
+                \\ a\textbf{x}_2^{(1)} - a\textbf{x}_2^{(3)} = 0 &\Rightarrow \textbf{x}_2^{(1)} = \textbf{x}_2^{(3)}
+                \\ (a-b)\textbf{x}_2^{(2)}= 0 &\Rightarrow -2\textbf{x}_2^{(2)} = 0 \Rightarrow \textbf{x}_2^{(2)}
+                \\ a\textbf{x}_2^{(1)} - a\textbf{x}_2^{(3)} = 0 &\Rightarrow \textbf{x}_2^{(1)} = \textbf{x}_2^{(3)} 
+            \end{align*}
+
+            \begin{itemize}
+                \item[] Terapkan $\textbf{x}_2^{(3)}=1$
+                \item[] Kita mendapat $\textbf{x}_2^{(1)}=1$ dan $\textbf{x}_2=(1,0,1)$
+            \end{itemize}
+            \begin{align*}
+                (\lambda_3I-A)\textbf{x}_3=0 &\Leftrightarrow \begin{bmatrix}
+                    -a&0&-a\\0&-a-b&0\\-a&0&-a
+                \end{bmatrix}\begin{bmatrix}
+                    \textbf{x}_3^{(1)} \\ \textbf{x}_3^{(2)} \\ \textbf{x}_3^{(3)}
+                \end{bmatrix} = \begin{bmatrix}
+                    0\\0\\0
+                \end{bmatrix}
+                \\ a\textbf{x}_3^{(1)} - a\textbf{x}_3^{(3)} = 0 &\Rightarrow \textbf{x}_3^{(1)} = -\textbf{x}_3^{(3)}
+                \\ (-a-b)\textbf{x}_3^{(2)}= 0 &\Rightarrow a=-b;\textbf{x}_3^{(2)} \in \mathbb{R}
+                \\ -c\textbf{x}_3^{(2)} - k\textbf{x}_3^{(3)} = 0 &\Rightarrow \textbf{x}_3^{(1)} = -\textbf{x}_3^{(3)} 
+            \end{align*}
+
+            \begin{itemize}
+                \item[] Terapkan $\textbf{x}_3^{(1)}=1$ dan $\textbf{x}_3^{(2)}=-2$
+                \item[] Kita mendapat $\textbf{x}_3^{(3)}=1$ dan $\textbf{x}_3=(1,-2,-1)$
+                \item[] Bukti vector orthogonal:
+            \end{itemize}
+            \begin{align*}
+                \textbf{x}_1 \textbf{x}_2 &= (1,1,-1)(1,0,1)
+                \\ &= 1-1 = 0
+                \\ \textbf{x}_1 \textbf{x}_3 &= (1,1,-1) (1,-2,-1)
+                \\ &= 1-2+1 = 0
+                \\ \textbf{x}_2 \textbf{x}_3 &= (1,0,1)(1,-2,-1)
+                \\ &= 1+0-1=0 
+            \end{align*}
+
+            \begin{itemize}
+                \item[] Mencari norms dari eigenvectors:
+            \end{itemize}
+            \begin{align*}
+                \Vert\textbf{x}_1\Vert &= \Vert(1,1,-1)\Vert
+                \\ &= \sqrt{1^2+1^2+(-1)^2} = \sqrt{3}
+                \\ \Vert\textbf{x}_2\Vert &= \Vert(1,0,-1)\Vert
+                \\ &= \sqrt{1^2+0+1^2} = \sqrt{2}
+                \\ \Vert\textbf{x}_3\Vert &= \Vert(1,-2,-1)\Vert
+                \\ \sqrt{1^2 + (-2)^2 + (-1)^2} = \sqrt{6}
+            \end{align*}
+
+            \begin{itemize}
+                \item[$\therefore$] Matriks P adalah:
+            \end{itemize}
+            \begin{align*}
+                P &= \begin{bmatrix}
+                    \frac{\textbf{x}_1}{\Vert\textbf{x}_1\Vert} & \frac{\textbf{x}_2}{\Vert\textbf{x}_2\Vert} & \frac{\textbf{x}_3}{\Vert\textbf{x}_3\Vert}
+                \end{bmatrix}
+                \\ &= \frac{\sqrt{6}}{6} \begin{bmatrix}
+                    \sqrt{2} & \sqrt{3} & 1
+                    \\ \sqrt{2} & 0 & =2
+                    \\ -\sqrt{2} & \sqrt{3} & -1
+                \end{bmatrix}
+            \end{align*}
+
         \end{enumerate}
 
     \subsection*{Positive Definite Matrices}
@@ -869,6 +1170,52 @@
                     4 & 2 & 3\\
                     5 & 3 & 5
                 \end{bmatrix}$
+
+                Diketahui:
+                \begin{itemize}
+                    \item[] $A=\begin{bmatrix}
+                        20 & 4 & 5\\
+                        4 & 2 & 3\\
+                        5 & 3 & 5
+                    \end{bmatrix}$
+                \end{itemize}
+
+                Ditanya:
+                \begin{itemize}
+                    \item Cholesky decomposition $A$?
+                \end{itemize}
+
+                Jawab:
+                \begin{align*}
+                    \mbox{det}(^{(1)}A)=20>0&;\mbox{det}(^{(2)}A)=24>0;\mbox{det}(^{(3)}A)=10>0
+                    \\ A = &\begin{bmatrix}
+                        20 & 4 & 5\\
+                        4 & 2 & 3\\
+                        5 & 3 & 5
+                    \end{bmatrix}
+                    \\ \textbf{R}_2 \to \textbf{R}_2 - \frac{\textbf{R}_1}{5} &\begin{bmatrix}
+                        20 & 4 & 5\\
+                        0 & \frac{6}{5} & 2\\
+                        5 & 3 & 5
+                    \end{bmatrix}
+                    \\ \textbf{R}_3 \to \textbf{R}_3 - \frac{\textbf{R}_1}{4} &\begin{bmatrix}
+                        20 & 4 & 5\\
+                        0 & \frac{6}{5} & 2\\
+                        0 & 2 & \frac{15}{4}
+                    \end{bmatrix}
+                    \\ \textbf{R}_3 \to \textbf{R}_3 - \frac{5\textbf{R}_2}{3} &\begin{bmatrix}
+                        20 & 4 & 5\\
+                        0 & \frac{6}{5} & 2\\
+                        0 & 0 & \frac{5}{12}
+                    \end{bmatrix} = V_1
+                \end{align*}
+                \begin{itemize}
+                    \item[$\therefore$] $V = \begin{bmatrix}
+                        2\sqrt{5} & \frac{2\sqrt{5}}{5} & \frac{\sqrt{5}}{2}
+                        \\ 0 & \frac{\sqrt{30}}{5} & \frac{2\sqrt{30}}{6}
+                        \\ 0 & 0 & \frac{\sqrt{60}}{12}
+                    \end{bmatrix}$
+                \end{itemize}
 
             \end{enumerate}
         \end{enumerate}
@@ -886,6 +1233,80 @@
                     1 & -1 & 0
                 \end{bmatrix}$
 
+                Diketahui:
+                \begin{itemize}
+                    \item[] $A = \begin{bmatrix}
+                        1 & 1 & 0\\
+                        -1 & 0 & 1\\
+                        0 & 1 & 1\\
+                        1 & -1 & 0
+                    \end{bmatrix}$
+                \end{itemize}
+
+                Ditanya:
+                \begin{itemize}
+                    \item QR-factorization dari $A$?
+                \end{itemize}
+
+                Jawab:
+                \begin{align*}
+                    \textbf{x}_1 &= \begin{bmatrix}
+                        1&-1&0&1
+                    \end{bmatrix}^T
+                    \\ \textbf{x}_2 &= \begin{bmatrix}
+                        1&0&1&-1
+                    \end{bmatrix}^T
+                    \\ \textbf{x}_3 &= \begin{bmatrix}
+                        0&1&1&0
+                    \end{bmatrix}^T
+                \end{align*}
+                \begin{itemize}
+                    \item[] Gunakan Gram-Schmidt algorithm:
+                \end{itemize}
+                \begin{align*}
+                    \textbf{f}_1&=\textbf{x}_1=\begin{bmatrix}
+                        1&-1&0&1
+                    \end{bmatrix}^T
+                    \\\textbf{f}_1&=\textbf{x}_2-\frac{\textbf{x}_2\cdot\textbf{f}_1}{\Vert\textbf{f}_1\Vert^2}\textbf{f}_1
+                    \\ &= \begin{bmatrix}
+                        1&0&1&-1
+                    \end{bmatrix}^T - 0 = \begin{bmatrix}
+                        1&0&1&-1
+                    \end{bmatrix}
+                    \\ \textbf{f}_3 &= \textbf{x}_3-\frac{\textbf{x}_3\cdot\textbf{f}_1}{\Vert\textbf{f}_1\Vert^2}\textbf{f}_1-\frac{\textbf{x}_3\cdot\textbf{f}_2}{\Vert\textbf{f}_2\Vert^2}\textbf{f}_2
+                    \\ &= \begin{bmatrix}
+                        0&1&1&0
+                    \end{bmatrix}^T - \frac{-1}{3}\begin{bmatrix}
+                        1&-1&0&1
+                    \end{bmatrix}^T - \frac{1}{3}\begin{bmatrix}
+                        1&0&1&-1
+                    \end{bmatrix}^T
+                    \\ &= \frac{2}{3}\begin{bmatrix}
+                        0&1&1&1
+                    \end{bmatrix}^T
+                \end{align*}
+                \begin{itemize}
+                    \item[] Menormalisasi:
+                \end{itemize}
+                \begin{align*}
+                    \textbf{Q}_1=\frac{1}{\Vert\textbf{f}_1\Vert}\textbf{f}_1 &= \frac{\sqrt{3}}{3}\begin{bmatrix}
+                        1&-1&0&1
+                    \end{bmatrix}^T
+                    \\ \textbf{Q}_2=\frac{1}{\Vert\textbf{f}_2\Vert}\textbf{f}_2 &= \frac{\sqrt{3}}{3}\begin{bmatrix}
+                        1&0&1&-1
+                    \end{bmatrix}^T
+                    \\ \textbf{Q}_3=\frac{1}{\Vert\textbf{f}_3\Vert}\textbf{f}_3 &= \frac{\sqrt{3}}{3}\begin{bmatrix}
+                        0&1&1&1
+                    \end{bmatrix}^T
+                \end{align*}
+                \begin{itemize}
+                    \item[$\therefore$] $\textbf{Q} = \frac{\sqrt{3}}{3}\begin{bmatrix}
+                            1&1&0\\-1&0&1\\0&1&1\\1&-1&1
+                        \end{bmatrix}$
+                    \item[$\therefore$] $R=\frac{\sqrt{3}}{3}\begin{bmatrix}
+                        3&0&-1\\0&3&1\\0&0&2
+                    \end{bmatrix}$ 
+                \end{itemize}
             \end{enumerate}
         \end{enumerate}
 
@@ -900,9 +1321,186 @@
                     2&-4\\-3&3
                 \end{bmatrix}$
 
+                Diketahui:
+                \begin{itemize}
+                    \item[] $A=\begin{bmatrix}
+                        2&-4\\-3&3
+                    \end{bmatrix}$
+                    \item[] $\textbf{x}_0=\begin{bmatrix}
+                        1\\1
+                    \end{bmatrix}$
+                \end{itemize}
+
+                Ditanya:
+                \begin{itemize}
+                    \item Eigenvalues, eigenvectors, $\textbf{x}_4$, dan $r_3$?
+                \end{itemize}
+
+                Jawab:
+                \begin{align*}
+                    (A-\textbf{x}I) &= \begin{bmatrix}
+                        2-\lambda&-4\\-3\\3-\lambda
+                    \end{bmatrix}
+                    \\ &=(2-\lambda)(3-\lambda)-(4)(3)
+                    \\ &=\lambda^2-5\lambda-6
+                    \\ &=(\lambda+1)(\lambda-6)=0
+                    \\ \therefore \lambda_1=-1 &\lor \lambda_2=6 
+                \end{align*}
+                
+                \pagebreak
+
+                \begin{itemize}
+                    \item[] $\lambda_1 = -1$
+                \end{itemize}
+                \begin{align*}
+                    \begin{bmatrix}
+                        3&-4\\-3&4 
+                    \end{bmatrix}\begin{bmatrix}
+                        \textbf{x}_1\\\textbf{x}_2
+                    \end{bmatrix}&=\begin{bmatrix}
+                        0\\0
+                    \end{bmatrix}
+                    \\ 3\textbf{x}_1-4\textbf{x}_2&=0
+                    \\ -3\textbf{x}_1+4\textbf{x}_2&=0
+                    \\ \textbf{x}_1 &= \frac{4\textbf{x}_2}{3}
+                    \\ \textbf{x}_2 &= \textbf{x}_2
+                    \\ \therefore \mbox{Eigenvector = }\textbf{x}_2&\begin{bmatrix}
+                        \frac{4}{3}\\1
+                    \end{bmatrix}
+                \end{align*}
+                \begin{itemize}
+                    \item[] $\lambda_2 = 6$
+                \end{itemize}
+                \begin{align*}
+                    \begin{bmatrix}
+                        4&4\\3&3
+                    \end{bmatrix}\begin{bmatrix}
+                        \textbf{x}_1\\\textbf{x}_2
+                    \end{bmatrix} &= \begin{bmatrix}
+                        0\\0
+                    \end{bmatrix}
+                    \\ 4\textbf{x}_1+4\textbf{x}_2&=0
+                    \\ 3\textbf{x}_1+3\textbf{x}_2&=0
+                    \\ \textbf{x}_1 &= -\textbf{x}_2
+                    \\ \textbf{x}_2 &= \textbf{x}_2
+                    \\ \therefore \mbox{Eigenvector = }\textbf{x}_2&\begin{bmatrix}
+                        -1\\1
+                    \end{bmatrix}
+                \end{align*}
+                \begin{align*}
+                    \textbf{x}_0 &= \begin{bmatrix}
+                        1\\1
+                    \end{bmatrix}
+                    \\ \textbf{x}_1 = A\textbf{x}_0 &= \begin{bmatrix}
+                        -2\\0
+                    \end{bmatrix}
+                    \\ \textbf{x}_2 = A\textbf{x}_1 &= \begin{bmatrix}
+                        -4\\6
+                    \end{bmatrix}
+                    \\ \textbf{x}_3 = A\textbf{x}_2 &= \begin{bmatrix}
+                        -32\\30
+                    \end{bmatrix}
+                    \\ \therefore \textbf{x}_4 = A\textbf{x}_3 &= \begin{bmatrix}
+                        -184\\186
+                    \end{bmatrix}
+                \end{align*}
+                \begin{align*}
+                    \therefore r_3&=\frac{\textbf{x}_k\cdot\textbf{x}_{k+1}}{\Vert\textbf{x}_k\Vert^2}
+                    \\ &= \frac{\textbf{x}_3\cdot\textbf{x}_4}{\Vert\textbf{x}_3\Vert^2}
+                    \\ &= \frac{2867}{481}
+                \end{align*}
+
+                \pagebreak
+
                 \item $A=\begin{bmatrix}
                     5&2\\-3&-2
                 \end{bmatrix}$
+
+                Diketahui:
+                \begin{itemize}
+                    \item[] $A=\begin{bmatrix}
+                        5&2\\-3&-2
+                    \end{bmatrix}$
+                    \item[] $\textbf{x}_0=\begin{bmatrix}
+                        1\\1
+                    \end{bmatrix}$
+                \end{itemize}
+
+                Ditanya:
+                \begin{itemize}
+                    \item Eigenvalues, eigenvectors, $\textbf{x}_4$, dan $r_3$?
+                \end{itemize}
+
+                Jawab:
+                \begin{align*}
+                    (A-\textbf{x}I) &= \begin{bmatrix}
+                        5-\lambda&2\\-3\\-2-\lambda
+                    \end{bmatrix}
+                    \\ &=(5-\lambda)(2-\lambda)-(-3)(2)
+                    \\ &=\lambda^2-3\lambda-4
+                    \\ &=(\lambda+1)(\lambda-4)=0
+                    \\ \therefore \lambda_1=-1 &\lor \lambda_2=4 
+                \end{align*}
+                \begin{itemize}
+                    \item[] $\lambda_1 = -1$
+                \end{itemize}
+                \begin{align*}
+                    &\begin{bmatrix}
+                        6&2\\-3&3    
+                    \end{bmatrix}
+                    \\ \textbf{R}_1 \to \frac{\textbf{R}_1}{6} &\begin{bmatrix}
+                        1&\frac{1}{3}\\-3&-1
+                    \end{bmatrix}
+                    \\ \textbf{R}_2 \to \textbf{R}_2 - 3\textbf{R}_1 &\begin{bmatrix}
+                        1&\frac{1}{3}\\0&0
+                    \end{bmatrix}
+                    \\ \textbf{x}_1 &= -\frac{\textbf{x}_2}{3}
+                    \\ \textbf{x}_2 &= \textbf{x}_2
+                    \\ \therefore \mbox{Eigenvector = }\textbf{x}_2&\begin{bmatrix}
+                        -\frac{1}{3}\\1
+                    \end{bmatrix}
+                \end{align*}
+
+                \pagebreak
+
+                \begin{itemize}
+                    \item[] $\lambda_2 = 4$
+                \end{itemize}
+                \begin{align*}
+                    &\begin{bmatrix}
+                        1&2\\-3&-6
+                    \end{bmatrix}
+                    \\ \textbf{R}_2 \to \textbf{R}_2 + 3\textbf{R}_1 &\begin{bmatrix}
+                        1&2\\0&0
+                    \end{bmatrix}
+                    \\ \textbf{x}_1&=-2\textbf{x}_2
+                    \\ \textbf{x}_2&=\textbf{x}_1
+                    \\ \therefore \mbox{Eigenvector = }\textbf{x}_2&\begin{bmatrix}
+                        -2\\1
+                    \end{bmatrix}
+                \end{align*}
+                \begin{align*}
+                    \textbf{x}_0 &= \begin{bmatrix}
+                        1\\1
+                    \end{bmatrix}
+                    \\ \textbf{x}_1 = A\textbf{x}_0 &= \begin{bmatrix}
+                        7\\-5
+                    \end{bmatrix}
+                    \\ \textbf{x}_2 = A\textbf{x}_1 &= \begin{bmatrix}
+                        25\\-11
+                    \end{bmatrix}
+                    \\ \textbf{x}_3 = A\textbf{x}_2 &= \begin{bmatrix}
+                        103\\-53
+                    \end{bmatrix}
+                    \\ \therefore\textbf{x}_4 = A\textbf{x}_3 &= \begin{bmatrix}
+                        409\\-203
+                    \end{bmatrix}
+                \end{align*}
+                \begin{align*}
+                    \therefore r_3&=\frac{\textbf{x}_k\cdot\textbf{x}_{k+1}}{\Vert\textbf{x}_k\Vert^2}
+                    \\ &= \frac{\textbf{x}_3\cdot\textbf{x}_4}{\Vert\textbf{x}_3\Vert^2}
+                    \\ &= \frac{52886}{13418}
+                \end{align*}
 
             \end{enumerate}
         \end{enumerate}
@@ -918,6 +1516,83 @@
                     3&-4\\4&3
                 \end{bmatrix}$
 
+                \pagebreak
+
+                Diketahui:
+                \begin{itemize}
+                    \item[] $A^{-1}=A=A^T$
+                    \item[] $A=U\Sigma _AV^T$ adalah SVD dari $A$
+                    \item[] $U=\frac{1}{5}\begin{bmatrix}
+                        3&-4\\4&3
+                    \end{bmatrix}$
+                \end{itemize}
+
+                Ditanya:
+                \begin{itemize}
+                    \item Matriks orthogonal $V$?
+                \end{itemize}
+
+                Jawab:
+                \begin{align*}
+                    A^T\cdot A&=\begin{bmatrix}
+                        0&1\\1&0
+                    \end{bmatrix}\begin{bmatrix}
+                        0&1\\1&0
+                    \end{bmatrix}=\begin{bmatrix}
+                        1&0\\0&1
+                    \end{bmatrix}
+                    \\ (A-\textbf{x}I)&=\begin{bmatrix}
+                        1-\lambda&0\\0&1-\lambda
+                    \end{bmatrix}
+                    \\ (1-\lambda)^2&=0
+                    \\ \lambda_1=1&\lor \lambda_2=1
+                \end{align*}
+                \begin{itemize}
+                    \item[] $\lambda = 1$
+                \end{itemize}
+                \begin{align*}
+                    &\begin{bmatrix}
+                        0&0\\0&0
+                    \end{bmatrix}
+                    \\ \textbf{x}_1&=\textbf{x}_1
+                    \\ \textbf{x}_2&=\textbf{x}_2
+                    \\ \textbf{x}_1\begin{bmatrix}
+                        1\\0
+                    \end{bmatrix} &+ \textbf{x}_2\begin{bmatrix}
+                        0\\1
+                    \end{bmatrix}
+                \end{align*}
+                \begin{itemize}
+                    \item[$\therefore$] Eigenvalues adalah $\lambda_1=1, \lambda_2=1$ dan eigenvectors adalah $\left\{\begin{bmatrix}
+                        1\\0
+                    \end{bmatrix},\begin{bmatrix}
+                        0\\1
+                    \end{bmatrix}\right\}$ 
+                \end{itemize}
+                \begin{align*}
+                    \sigma_1&=1; \sigma_2=1
+                    \\ \Sigma_A&=\begin{bmatrix}
+                        1&0\\0&1
+                    \end{bmatrix}
+                    \\V^{T-1}&=A^{-1}\lor\Sigma_A
+                    \\ &= \begin{bmatrix}
+                        0&1\\1&0
+                    \end{bmatrix}\begin{bmatrix}
+                        \frac{3}{5}&-\frac{4}{5}\\\frac{4}{5}&\frac{3}{5}
+                    \end{bmatrix}\begin{bmatrix}
+                        1&0\\0&1
+                    \end{bmatrix}
+                    \\ &= \frac{1}{5}\begin{bmatrix}
+                        4&3\\3&-4
+                    \end{bmatrix}
+                    \\ V^T&=\begin{bmatrix}
+                        -4&-3\\-3&4
+                    \end{bmatrix}
+                    \\ \therefore V &= \begin{bmatrix}
+                        -4&-3\\-3&4
+                    \end{bmatrix}
+                \end{align*}
+
             \end{enumerate}
             
             \item \textbf{Exercise 8.6.9}\\Find an SVD for the following matrices:
@@ -928,9 +1603,133 @@
                     -1 & 0 & -2\\
                     1 & 2 & 0
                 \end{bmatrix}$
+                
+                Diketahui:
+                \begin{itemize}
+                    \item[] $A=\begin{bmatrix}
+                        1 & 1 & 1\\
+                        -1 & 0 & -2\\
+                        1 & 2 & 0
+                    \end{bmatrix}$
+                \end{itemize}
+
+                Ditanya:
+                \begin{itemize}
+                    \item SVD dari $A$?
+                \end{itemize}
+
+                Jawab:
+                \begin{align*}
+                    A&=\begin{bmatrix}
+                        1 & 1 & 1\\
+                        -1 & 0 & -2\\
+                        1 & 2 & 0
+                    \end{bmatrix}
+                    \\A^T&=\begin{bmatrix}
+                        1 & -1 & 1\\
+                        1 & 0 & 2\\
+                        1 & -2 & 0
+                    \end{bmatrix}
+                    \\A^TA&=\begin{bmatrix}
+                        3&3&3\\3&5&1\\3&1&5
+                    \end{bmatrix}
+                    \\ (A-\textbf{x}I) &= \begin{bmatrix}
+                        3-\lambda&3&3\\3&5-\lambda&1\\3&1&5-\lambda
+                    \end{bmatrix}
+                    \\ \lambda_1=0\lor \lambda_2 &= 4 \lor \lambda_3=9
+                \end{align*}
+                \begin{itemize}
+                    \item[] $\lambda_1=0$
+                \end{itemize}
+                \begin{align*}
+                    \begin{bmatrix}
+                        3&3&3\\3&5&1\\3&1&5
+                    \end{bmatrix} &\to \begin{bmatrix}
+                        1&0&2\\0&1&-1\\0&0&0
+                    \end{bmatrix}
+                    \\ \textbf{x}_3\begin{bmatrix}
+                        -2\\1\\1
+                    \end{bmatrix}
+                \end{align*}
+                \begin{itemize}
+                    \item[] $\lambda_2=4$
+                \end{itemize}
+                \begin{align*}
+                    \begin{bmatrix}
+                        -1&3&3\\3&1&1\\3&1&1
+                    \end{bmatrix} &\to \begin{bmatrix}
+                        1&0&0\\0&1&1\\0&0&0
+                    \end{bmatrix}
+                    \\ \textbf{x}_3\begin{bmatrix}
+                        0\\-1\\1
+                    \end{bmatrix}
+                \end{align*}
+                \begin{itemize}
+                    \item[] $\lambda_3=9$
+                \end{itemize}
+                \begin{align*}
+                    \begin{bmatrix}
+                        -6&3&3\\3&-4&1\\3&1&-4
+                    \end{bmatrix} &\to \begin{bmatrix}
+                        1&0&-1\\0&1&-1\\0&0&0
+                    \end{bmatrix}
+                    \\ \textbf{x}_3\begin{bmatrix}
+                        1\\1\\1
+                    \end{bmatrix}
+                \end{align*}
+                \begin{itemize}
+                    \item[$\therefore$] Eigenvalues adalah $\lambda_1=0,\lambda_2=4,\lambda_3=9$ dan eigenvectors adalah $\left\{\begin{bmatrix}
+                        -2\\1\\1
+                    \end{bmatrix},\begin{bmatrix}
+                        0\\-1\\1
+                    \end{bmatrix},\begin{bmatrix}
+                        1\\1\\1
+                    \end{bmatrix}\right\}$.
+                \end{itemize}
+                \begin{align*}
+                    \sigma_1&=\sqrt{9}=3
+                    \\ \sigma_2&=\sqrt{4}=2
+                    \\ \Sigma_A&=\begin{bmatrix}
+                        3&0&0\\0&2&0\\0&0&0
+                    \end{bmatrix}
+                    \\ q_1 = \begin{bmatrix}
+                        \frac{\sqrt{3}}{3}\\\frac{\sqrt{3}}{3}\\\frac{\sqrt{3}}{3}
+                    \end{bmatrix}
+                    , q_2 &= \begin{bmatrix}
+                        0\\-\frac{\sqrt{2}}{2}\\\frac{\sqrt{2}}{2}
+                    \end{bmatrix}
+                    , q_3 = \begin{bmatrix}
+                        -\frac{\sqrt{6}}{3}\\\frac{\sqrt{6}}{6}\\\frac{\sqrt{6}}{6}
+                    \end{bmatrix}
+                    \\ \therefore Q &= \begin{bmatrix}
+                        \frac{\sqrt{3}}{3}&0&-\frac{\sqrt{6}}{3}\\\frac{\sqrt{3}}{3}&-\frac{\sqrt{2}}{2}&\frac{\sqrt{6}}{6}\\\frac{\sqrt{3}}{3}&\frac{\sqrt{2}}{2}&\frac{\sqrt{6}}{6}
+                    \end{bmatrix}
+                    \\ P_1 = \begin{bmatrix}
+                        \frac{\sqrt{3}}{9}\\\frac{\sqrt{3}}{3}\\-\frac{\sqrt{3}}{9}
+                    \end{bmatrix}
+                    , P_2 &= \begin{bmatrix}
+                        0\\\frac{\sqrt{2}}{2}\\-\frac{\sqrt{2}}{2}
+                    \end{bmatrix}
+                    , P_3 = \begin{bmatrix}
+                        -\frac{\sqrt{6}}{3}\\\frac{\sqrt{6}}{6}\\\frac{\sqrt{6}}{6}
+                    \end{bmatrix}
+                    \\ \therefore P &= \begin{bmatrix}
+                        \frac{\sqrt{3}}{9}&0&-\frac{\sqrt{6}}{3}\\\frac{\sqrt{3}}{3}&\frac{\sqrt{2}}{2}&\frac{\sqrt{6}}{6}\\-\frac{\sqrt{3}}{9}&-\frac{\sqrt{2}}{2}&\frac{\sqrt{6}}{6}
+                    \end{bmatrix}
+                    \\ \therefore A &= P\Sigma_AQ^T
+                    \\ &=\begin{bmatrix}
+                        \frac{\sqrt{3}}{9}&0&-\frac{\sqrt{6}}{3}\\\frac{\sqrt{3}}{3}&\frac{\sqrt{2}}{2}&\frac{\sqrt{6}}{6}\\-\frac{\sqrt{3}}{9}&-\frac{\sqrt{2}}{2}&\frac{\sqrt{6}}{6}
+                    \end{bmatrix}\begin{bmatrix}
+                        3&0&0\\0&2&0\\0&0&0
+                    \end{bmatrix}\begin{bmatrix}
+                        \frac{\sqrt{3}}{3}&\frac{\sqrt{3}}{3}&\frac{\sqrt{3}}{3}\\0&-\frac{\sqrt{2}}{2}&\frac{\sqrt{2}}{2}\\-6\sqrt{3}&\frac{\sqrt{6}}{6}&\frac{\sqrt{6}}{6}
+                    \end{bmatrix}
+                \end{align*}
 
             \end{enumerate}
         \end{enumerate}
+
+    \pagebreak
 
     \subsection*{Complex Matrices}
         \begin{enumerate}
@@ -939,6 +1738,30 @@
             \begin{enumerate}
                 \setcounter{enumii}{1}
                 \item $(i, -i, 2+i),\mbox{ }(i, i, 2-i)$
+                
+                Diketahui:
+                \begin{itemize}
+                    \item[] $V=(i, -i, 2+i)$
+                    \item[] $U=(i, i, 2-i)$
+                \end{itemize}
+
+                Ditanya:
+                \begin{itemize}
+                    \item Apakah kedua vector orthogonal?
+                \end{itemize}
+
+                Jawab:
+                \begin{itemize}
+                    \item[] Vector orthogonal apabila $V \cdot U = 0$
+                \end{itemize}
+                \begin{align*}
+                    (i, -i, 2+i)\cdot(i, i, 2-i)&=i^2-i^2+(2+i)(2-i)
+                    \\ &= -2i^2 \neq 0
+                \end{align*}
+
+                \begin{itemize}
+                    \item[$\therefore$] Kedua vector tersebut tidak orthogonal karena $V \cdot U \neq 0$.
+                \end{itemize}
                 
             \end{enumerate}
             
@@ -950,6 +1773,74 @@
                     0&1&1+i\\
                     0&1-i&2
                 \end{bmatrix}$
+
+                Diketahui:
+                \begin{itemize}
+                    \item[] $A=\begin{bmatrix}
+                        1&0&0\\
+                        0&1&1+i\\
+                        0&1-i&2
+                    \end{bmatrix}$
+                    \item[] $U^HAU$ diagonal
+                \end{itemize}
+
+                Ditanya:
+                \begin{itemize}
+                    \item Matriks unitary $U$?
+                \end{itemize}
+
+                Jawab:
+                \begin{align*}
+                    (\textbf{x}I-A) &= \begin{bmatrix}
+                        \textbf{x}-1&0&0\\0&\textbf{x}-1&-1-i\\0&-1-i&x-2
+                    \end{bmatrix}
+                    \\ (\textbf{x}-1)(\textbf{x}^2-3\textbf{x})&=(\textbf{x}-1)(\textbf{x}-3)
+                    \\ \textbf{x}=1\lor \textbf{x}&=0 \lor \textbf{x}=3
+                \end{align*}
+                \begin{itemize}
+                    \item[$\therefore$] Eigenvalues adalah $\lambda_1=0, \lambda_2=1,\lambda_3=3$
+                    \pagebreak
+                    \item[] $\lambda_1 = 0$
+                \end{itemize}
+                \begin{align*}
+                    \begin{bmatrix}
+                        =1&0&0\\0&-1&-1-i\\0&-1+i&-1
+                    \end{bmatrix}&\to\begin{bmatrix}
+                        0&1&0\\0&0&1\\0&0&0
+                    \end{bmatrix}
+                    \\\textbf{x}_1&=\textbf{x}_1
+                    \\\textbf{x}_2&=0
+                    \\\textbf{x}_3&=0
+                    \\\textbf{x}_1&\begin{bmatrix}
+                        1\\0\\0
+                    \end{bmatrix}
+                \end{align*}
+                \begin{itemize}
+                    \item[] $\lambda_2=3$
+                \end{itemize}
+                \begin{align*}
+                    \begin{bmatrix}
+                        2&0&0\\0&2&-1-i\\0&-1+i&1
+                    \end{bmatrix} &\to \begin{bmatrix}
+                        1&0&0\\0&-1+i&1\\0&0&0
+                    \end{bmatrix}
+                    \\ \textbf{x}_1&=0
+                    \\ \textbf{x}_2&=\textbf{x}_2
+                    \\ \textbf{x}_3&=1-i(\textbf{x}_2)
+                    \\ \textbf{x}_2&\begin{bmatrix}
+                        0&1&1-i
+                    \end{bmatrix}
+                \end{align*}
+                \begin{align*}
+                    \therefore U &=\begin{bmatrix}
+                        1&0&0\\0&\frac{\sqrt{3}+i\sqrt{3}}{3}&\frac{\sqrt{3}}{3}\\0&-\frac{\sqrt{3}}{3}&\frac{\sqrt{3}-i\sqrt{3}}{3}
+                    \end{bmatrix} = \frac{\sqrt{3}}{3}\begin{bmatrix}
+                        1&0&0\\0&1+i&1\\0&-1&1-i
+                    \end{bmatrix}; U \mbox{ orthogonal}
+                    \\ U^HAU&=\begin{bmatrix}
+                        1&0&0\\0&0&0\\0&0&3
+                    \end{bmatrix}
+                \end{align*}
 
             \end{enumerate}
         \end{enumerate}
